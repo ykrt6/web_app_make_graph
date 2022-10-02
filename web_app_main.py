@@ -1,10 +1,4 @@
-# import imp
-# import re
-# from statistics import mean
-# from tkinter import Menu
-# from unittest import result
 import streamlit as st
-# import pandas as pd
 import sqlite3
 import hashlib
 from function import web_app_graph
