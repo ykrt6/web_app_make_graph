@@ -44,6 +44,7 @@ def readData(df_init) :
     tick_size = float(df_init.loc[8,1])
     data_input_list.append(tick_size)
     set_data_list.update(zip(data_name_list, data_input_list))
+    st.write(set_data_list['fontFamilyJa'])
 
     return set_data_list
 
