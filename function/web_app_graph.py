@@ -21,7 +21,7 @@ def readData(df_init) :
     data_input_list = []
     dict_font_family_ja = {'HGP教科書体': "HGRKK", 'メイリオ': "meiryo", 'MS明朝': "msmincho", 'UDデジタル教科書N-R': "UDDigiKyokashoN-R", '游ゴシックMedium': "YuGothiM"}
     font_family_ja = df_init.loc[0,1]
-    font_dirs = ["./fonts/" + str(dict_font_family_ja[font_family_ja]) + ".ttc"]
+    font_dirs = "./fonts/" + str(dict_font_family_ja[font_family_ja]) + ".ttc"
     st.write(font_dirs)
     font_file = font_manager.findSystemFonts(fontpaths=font_dirs)
     data_input_list.append(font_manager.fontManager.addfont(font_file))
