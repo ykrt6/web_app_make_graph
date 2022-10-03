@@ -16,17 +16,15 @@ def readDataFile(data_file) :
     return df_data
 
 def readData(df_init) :
-    font_dirs = ["/fonts"]
-    font_files = font_manager.findSystemFonts(fontpaths=font_dirs)
-    for font_file in font_files:
-        font_manager.fontManager.addfont(font_file)
-    
     set_data_list = {}
     data_name_list = ['fontFamilyJa', 'fontFamilyEn', 'fontSize', 'fontLegendSize', 'width', 'height', 'tickFrame', 'tickDirection', 'tickSize']
     data_input_list = []
-    dict_font_family_ja = {'HGP教科書体': "/HGRKK.TTC", 'メイリオ': "font/meiryo.ttc", 'MS明朝': "font/msmincho.ttc", 'UDデジタル教科書N-R': "font/UDDigiKyokashoN-R.ttc", '游ゴシックMedium': "font/YuGothiM.ttc"}
+    dict_font_family_ja = {'HGP教科書体': "HGRKK", 'メイリオ': "meiryo", 'MS明朝': "msmincho", 'UDデジタル教科書N-R': "UDDigiKyokashoN-R", '游ゴシックMedium': "YuGothiM"}
     font_family_ja = df_init.loc[0,1]
-    data_input_list.append(dict_font_family_ja[font_family_ja])
+    font_dirs = ["./fonts/" + str(dict_font_family_ja[font_family_ja]) + ".ttc"]
+    st.write(font_dirs)
+    font_file = font_manager.findSystemFonts(fontpaths=font_dirs)
+    data_input_list.append(font_manager.fontManager.addfont(font_file))
     font_family_en = df_init.loc[1,1]
     data_input_list.append(font_family_en)
     font_size = float(df_init.loc[2,1])
@@ -44,7 +42,6 @@ def readData(df_init) :
     tick_size = float(df_init.loc[8,1])
     data_input_list.append(tick_size)
     set_data_list.update(zip(data_name_list, data_input_list))
-    st.write(set_data_list['fontFamilyJa'])
 
     return set_data_list
 
