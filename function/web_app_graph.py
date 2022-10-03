@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 import streamlit as st
+from matplotlib import font_manager
 
 @st.cache
 def readInitFile(init_file) :
@@ -15,10 +16,15 @@ def readDataFile(data_file) :
     return df_data
 
 def readData(df_init) :
+    font_dirs = ["/fonts"]
+    font_files = font_manager.findSystemFonts(fontpaths=font_dirs)
+    for font_file in font_files:
+        font_manager.fontManager.addfont(font_file)
+    
     set_data_list = {}
     data_name_list = ['fontFamilyJa', 'fontFamilyEn', 'fontSize', 'fontLegendSize', 'width', 'height', 'tickFrame', 'tickDirection', 'tickSize']
     data_input_list = []
-    dict_font_family_ja = {'HGP教科書体': "font/HGRKK.TTC", 'メイリオ': "font/meiryo.ttc", 'MS明朝': "font/msmincho.ttc", 'UDデジタル教科書N-R': "font/UDDigiKyokashoN-R.ttc", '游ゴシックMedium': "font/YuGothiM.ttc"}
+    dict_font_family_ja = {'HGP教科書体': "/HGRKK.TTC", 'メイリオ': "font/meiryo.ttc", 'MS明朝': "font/msmincho.ttc", 'UDデジタル教科書N-R': "font/UDDigiKyokashoN-R.ttc", '游ゴシックMedium': "font/YuGothiM.ttc"}
     font_family_ja = df_init.loc[0,1]
     data_input_list.append(dict_font_family_ja[font_family_ja])
     font_family_en = df_init.loc[1,1]
