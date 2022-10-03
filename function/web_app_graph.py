@@ -2,7 +2,6 @@ from cProfile import label
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-import japanize_matplotlib
 import streamlit as st
 
 @st.cache
@@ -19,6 +18,7 @@ def readData(df_init) :
     set_data_list = {}
     data_name_list = ['fontFamilyJa', 'fontFamilyEn', 'fontSize', 'fontLegendSize', 'width', 'height', 'tickFrame', 'tickDirection', 'tickSize']
     data_input_list = []
+    dict_font_family_ja = {'HGP教科書体': "font/HGRKK.TTC", 'メイリオ': "font/meiryo.ttc", 'MS 明朝': "font/msmincho.ttc", 'UD デジタル教科書 N-R': "font/UDDigiKyokashoN-R.ttc", '游ゴシック Medium': "font/YuGothiM.ttc"}
     font_family_ja = df_init.loc[0,1]
     data_input_list.append(font_family_ja)
     font_family_en = df_init.loc[1,1]
