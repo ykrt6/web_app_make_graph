@@ -20,7 +20,7 @@ def readData(df_init) :
     data_input_list = []
     dict_font_family_ja = {'HGP教科書体': "font/HGRKK.TTC", 'メイリオ': "font/meiryo.ttc", 'MS 明朝': "font/msmincho.ttc", 'UD デジタル教科書 N-R': "font/UDDigiKyokashoN-R.ttc", '游ゴシック Medium': "font/YuGothiM.ttc"}
     font_family_ja = df_init.loc[0,1]
-    data_input_list.append(font_family_ja)
+    data_input_list.append(dict_font_family_ja[font_family_ja])
     font_family_en = df_init.loc[1,1]
     data_input_list.append(font_family_en)
     font_size = float(df_init.loc[2,1])
