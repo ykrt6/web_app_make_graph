@@ -24,7 +24,8 @@ def readData(df_init) :
     font_dirs = "./fonts/" + str(dict_font_family_ja[font_family_ja]) + ".ttc"
     st.write(font_dirs)
     font_file = font_manager.findSystemFonts(fontpaths=font_dirs)
-    data_input_list.append(font_manager.fontManager.addfont(font_file))
+    st.write(font_manager.fontManager.addfont(font_file))
+    data_input_list.append(str(font_manager.fontManager.addfont(font_file)))
     font_family_en = df_init.loc[1,1]
     data_input_list.append(font_family_en)
     font_size = float(df_init.loc[2,1])
